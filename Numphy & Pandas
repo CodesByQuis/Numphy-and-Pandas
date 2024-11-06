@@ -1,0 +1,137 @@
+##1. Numpy Arrays
+# NumPy is a powerful library in Python used for numerical computing. It provides a multi-dimensional array object and a variety of methods to perform operations on these arrays.
+# Installing NumPy
+# To use NumPy, you’ll need to install it first (if it's not already installed):
+
+pip install numpy
+
+import numpy as np
+
+# Creating a 1D array
+arr_1d = np.array([1, 2, 3, 4, 5])
+print(arr_1d)  # Output: [1 2 3 4 5]
+
+# Creating a 2D array (matrix)
+arr_2d = np.array([[1, 2, 3], [4, 5, 6]])
+print(arr_2d)
+# Output:
+# [[1 2 3]
+#  [4 5 6]]
+
+# Creating arrays filled with zeros or ones
+zeros_arr = np.zeros((3, 3))  # 3x3 array of zeros
+ones_arr = np.ones((2, 4))    # 2x4 array of ones
+
+print(zeros_arr)
+# Output: 
+# [[0. 0. 0.]
+#  [0. 0. 0.]
+#  [0. 0. 0.]]
+
+# Creating a range of numbers
+arr_range = np.arange(0, 10, 2)  # Starts at 0, ends before 10, step 2
+print(arr_range)  # Output: [0 2 4 6 8]
+
+# Element-wise addition
+arr_a = np.array([1, 2, 3])
+arr_b = np.array([4, 5, 6])
+sum_arr = arr_a + arr_b
+print(sum_arr)  # Output: [5 7 9]
+
+# Element-wise multiplication
+product_arr = arr_a * arr_b
+print(product_arr)  # Output: [4 10 18]
+
+# Matrix multiplication (dot product)
+arr_2d = np.array([[1, 2], [3, 4]])
+arr_2d_2 = np.array([[5, 6], [7, 8]])
+dot_product = np.dot(arr_2d, arr_2d_2)
+print(dot_product)
+# Output: 
+# [[19 22]
+#  [43 50]]
+
+
+##2. Pandas Basics
+# Pandas is a powerful data manipulation and analysis library, commonly used for handling structured data (like CSV files, Excel files, SQL databases). It provides two main data structures: Series (1D) and DataFrame (2D).
+# Installing Pandas
+# To use Pandas, you need to install it first (if it's not already installed):
+pip install pandas
+
+import pandas as pd
+
+# Creating a Pandas Series from a list
+data = [1, 2, 3, 4, 5]
+series = pd.Series(data)
+print(series)
+# Output:
+# 0    1
+# 1    2
+# 2    3
+# 3    4
+# 4    5
+# dtype: int64
+
+# Creating a Series with custom index
+series_custom = pd.Series(data, index=["a", "b", "c", "d", "e"])
+print(series_custom)
+# Output:
+# a    1
+# b    2
+# c    3
+# d    4
+# e    5
+# dtype: int64
+
+# Creating a DataFrame from a dictionary of lists
+data = {
+    "Name": ["Alice", "Bob", "Charlie"],
+    "Age": [25, 30, 35],
+    "City": ["New York", "Los Angeles", "Chicago"]
+}
+
+df = pd.DataFrame(data)
+print(df)
+# Output:
+#       Name  Age         City
+# 0    Alice   25     New York
+# 1      Bob   30  Los Angeles
+# 2  Charlie   35      Chicago
+
+# Accessing columns
+print(df["Name"])  # Output: Series with 'Name' column values
+
+# Accessing rows by index
+print(df.iloc[1])  # Output: Row at index 1 (Bob's data)
+
+# Filtering rows based on conditions
+filtered_df = df[df["Age"] > 25]
+print(filtered_df)
+# Output:
+#       Name  Age         City
+# 1      Bob   30  Los Angeles
+# 2  Charlie   35      Chicago
+
+# Adding a new column
+df["Salary"] = [50000, 60000, 70000]
+print(df)
+# Output:
+#       Name  Age         City  Salary
+# 0    Alice   25     New York   50000
+# 1      Bob   30  Los Angeles   60000
+# 2  Charlie   35      Chicago   70000
+
+# Reading from a CSV file
+df_from_csv = pd.read_csv("data.csv")
+
+# Writing to a CSV file
+df.to_csv("output.csv", index=False)
+
+# Reading from an Excel file
+df_from_excel = pd.read_excel("data.xlsx")
+
+# Writing to an Excel file
+df.to_excel("output.xlsx", index=False)
+
+#Summary
+#NumPy provides efficient array handling, mathematical functions, and tools for array manipulation. It’s perfect for numerical operations and handling large datasets. Pandas provides powerful data structures like Series and DataFrame, allowing easy handling, manipulation, and analysis of structured data (such as CSV, Excel files, etc.). Both libraries are essential tools for data science and machine learning, enabling efficient data manipulation, analysis, and processing. 
